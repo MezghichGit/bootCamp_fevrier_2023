@@ -15,11 +15,14 @@
 
 <table align="center" border="1" class="table">
 	
-	<tr><th>Nom</th><th>Age</th><th>Téléphone</th><th>Adresse</th></tr>
+	<tr><th>Nom</th><th>Age</th><th>Téléphone</th><th>Adresse</th><th>Editer</th><th>Supprimer</th></tr>
 	<tr th:each="stagiaire : ${stagiaires}">
 		<td th:text="${stagiaire.nom}"></td>
 		<td th:text="${stagiaire.age}"></td>
 		<td th:text="${stagiaire.tel}"></td>
 		<td th:text="${stagiaire.adresse}"></td>
+		
+		<td><a href="#" class="btn btn-warning">Editer</a></td>
+		<td><a href="#" class="btn btn-danger">Supprimer</a></td>
 	</tr>
 </table>
