@@ -54,6 +54,8 @@ public class ProviderController {
 	    stagiaires.add(s3);
 	    stagiaires.add(s4);
 	    
+	    //System.out.println(stagiaires);
+	    model.addAttribute("stagiaires", stagiaires); 
 		return "data.html";
 	}
 
