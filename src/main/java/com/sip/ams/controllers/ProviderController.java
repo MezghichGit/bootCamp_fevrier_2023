@@ -16,6 +16,7 @@ public class ProviderController {
 		int nbrHeures = 20;
 		System.out.println("Hello BootCamp");
 		return "Détails formation : "+formation + " "+nbrHeures;
+		
 		//return "<h2 align=center>BootCamp</h2>";
 		//return "info.html";
 	}
