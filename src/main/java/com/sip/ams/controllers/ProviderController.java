@@ -1,62 +1,37 @@
 package com.sip.ams.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import static com.sip.ams.AmsApplication.providers;
 @Controller
-@RequestMapping("provider")
+@RequestMapping("/provider")
 public class ProviderController {
 	
-	@RequestMapping("/info")
-	@ResponseBody
-	public String info()
+	
+	@GetMapping("/list")
+	//@ResponseBody
+	public String listProviders(Model model)
 	{
-		String formation="Spring";
-		int nbrHeures = 20;
-		System.out.println("Hello BootCamp");
-		return "Détails formation : "+formation + " "+nbrHeures;
-		
-		//return "<h2 align=center>BootCamp</h2>";
-		//return "info.html";
+		//System.out.println(providers);
+		model.addAttribute("providers", providers);
+		return "provider/listProviders";
 	}
 	
-	@RequestMapping("/data")
-	public String data(Model model)
-	{   
-		String trainer = "Mohamed Amine Mezghich";
-	    String adresse = "Tunis";
-	    
-	    model.addAttribute("trn", trainer);
-	    model.addAttribute("adr", adresse );
-	    
-	    List<String> names = new ArrayList<>();
-	    
-	    names.add("Aymen");
-	    names.add("Haithem");
-	    names.add("Hatem");
-	    names.add("Dhia");
-	    model.addAttribute("names", names);
-	    
-	    List<Stagiaire> stagiaires = new ArrayList<>();
-	    
-	    Stagiaire s1 = new Stagiaire("Aymen", 22, "Sfax", 20000000);
-	    Stagiaire s2 = new Stagiaire("Haithem", 24, "Tunis", 30000000);
-	    Stagiaire s3 = new Stagiaire("Hatem", 23, "Jendouba", 40000000);
-	    Stagiaire s4 = new Stagiaire("Dhia", 26, "ElGhazela", 50000000);
-	    
-	    stagiaires.add(s1);
-	    stagiaires.add(s2);
-	    stagiaires.add(s3);
-	    stagiaires.add(s4);
-	    
-	    //System.out.println(stagiaires);
-	    model.addAttribute("stagiaires", stagiaires); 
-		return "data.html";
+	@GetMapping("/add")  // get le formulaire d'ajout
+	public String getAddFormProvider()
+	{
+		return "provider/addProvider";
+	}
+	
+	@PostMapping("/add")  // save provider in list
+	public String saveProvider()
+	{
+		return "";
 	}
 
 }

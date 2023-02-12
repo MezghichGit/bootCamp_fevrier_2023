@@ -2,6 +2,10 @@ package com.sip.ams.controllers;
 
 public class Stagiaire {
 	
+	public static double PI = 3.14;
+	public static void info() {
+		System.out.println("La valeur de PI = "+PI);
+	}
 	private String nom;
 	private int age;
 	private String adresse;
